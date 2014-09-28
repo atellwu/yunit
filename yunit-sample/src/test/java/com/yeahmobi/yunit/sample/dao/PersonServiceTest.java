@@ -9,11 +9,11 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.yeahmobi.ut_sample.dao.PersonMapper;
-import com.yeahmobi.ut_sample.entity.Person;
 import com.yeahmobi.yunit.DbUnitTestExecutionListener;
 import com.yeahmobi.yunit.annotation.DatabaseSetup;
 import com.yeahmobi.yunit.annotation.ExpectedDatabase;
+import com.yeahmobi.yunit.sample.dao.PersonMapper;
+import com.yeahmobi.yunit.sample.entity.Person;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext-test.xml" })

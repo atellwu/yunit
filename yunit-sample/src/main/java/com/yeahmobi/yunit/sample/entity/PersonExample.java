@@ -1,4 +1,4 @@
-package com.yeahmobi.ut_sample.entity;
+package com.yeahmobi.yunit.sample.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

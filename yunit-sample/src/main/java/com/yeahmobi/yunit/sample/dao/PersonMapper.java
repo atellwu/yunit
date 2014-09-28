@@ -1,8 +1,10 @@
-package com.yeahmobi.ut_sample.dao;
+package com.yeahmobi.yunit.sample.dao;
 
-import com.yeahmobi.ut_sample.entity.Person;
-import com.yeahmobi.ut_sample.entity.PersonExample;
+import com.yeahmobi.yunit.sample.entity.Person;
+import com.yeahmobi.yunit.sample.entity.PersonExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
