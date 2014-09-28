@@ -18,7 +18,7 @@ import com.yeahmobi.yunit.sample.entity.Person;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext-test.xml" })
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, DbUnitTestExecutionListener.class })
-public class PersonServiceTest {
+public class PersonMapperTest {
 
 	@Autowired
 	private PersonMapper personMapper;
