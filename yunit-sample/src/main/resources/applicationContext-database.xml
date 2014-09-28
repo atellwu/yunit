@@ -7,9 +7,10 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean id="personMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.yeahmobi.ut_sample.dao.PersonMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.yeahmobi.yunit.sample.dao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -17,7 +18,7 @@
 		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 		<property name="mapperLocations">
 			<list>
-				<value>classpath*:mapper/*Mapper.xml</value>
+				<value>classpath*:dao/*Mapper.xml</value>
 			</list>
 		</property>
 	</bean>
