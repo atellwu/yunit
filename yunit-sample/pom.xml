@@ -23,7 +23,6 @@
 	</distributionManagement>
 	<properties>
 		<spring.version>4.0.0.RELEASE</spring.version>
-		<hibernate.core.version>4.2.8.Final</hibernate.core.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,16 +34,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>c3p0</groupId>
@@ -62,13 +51,12 @@
 			<version>3.0.6</version>
 		</dependency>
 		<dependency>
-			<!-- 这是mybatis的pom中的可选依赖，我们依赖mybatis时是不会把它包括进来的，但这样，我奇怪的遇到org.apache.ibatis.session.Configuration.setLazyLoadingEnabled(boolean)抛出异常 
-				所以此处显式地引进，注意此时不能再把<optional>true</optional>带上了，否则它还是不会被打包进去war。 -->
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2.2</version>
-			<scope>runtime</scope>
-		</dependency>
+                        <!-- 这是mybatis的pom中的可选依赖，我们依赖mybatis时是不会把它包括进来的，但这样，我奇怪的遇到org.apache.ibatis.session.Configuration.setLazyLoadingEnabled(boolean)抛出异常 
+                                所以此处显式地引进，注意此时不能再把<optional>true</optional>带上了，否则它还是不会被打包进去war。 -->
+                        <groupId>cglib</groupId>
+                        <artifactId>cglib</artifactId>
+                        <version>2.2.2</version>
+                </dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
@@ -76,52 +64,21 @@
 			<!-- 1.0.2版本会导致Spring的PropertyPlaceholderConfigurer失效，见http://code.google.com/p/mybatis/issues/detail?id=414 -->
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.dbunit</groupId>
-			<artifactId>dbunit</artifactId>
-			<version>2.4.9</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.springtestdbunit</groupId>
-			<artifactId>spring-test-dbunit</artifactId>
-			<version>1.1.0-patched</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.7</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
-			<scope>test</scope>
-		</dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <version>1.7.7</version>
+                </dependency>
+
+		<!-- 单元测试 -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.3.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.181</version>
+			<groupId>com.yeahmobi.yunit</groupId>
+			<artifactId>yunit</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

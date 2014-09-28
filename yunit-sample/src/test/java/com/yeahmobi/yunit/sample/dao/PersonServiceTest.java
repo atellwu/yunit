@@ -9,16 +9,15 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.yeahmobi.ut_sample.dao.PersonMapper;
 import com.yeahmobi.ut_sample.entity.Person;
+import com.yeahmobi.yunit.DbUnitTestExecutionListener;
+import com.yeahmobi.yunit.annotation.DatabaseSetup;
+import com.yeahmobi.yunit.annotation.ExpectedDatabase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext-test.xml" })
-@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
-		DbUnitTestExecutionListener.class })
+@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, DbUnitTestExecutionListener.class })
 public class PersonServiceTest {
 
 	@Autowired
@@ -27,7 +26,7 @@ public class PersonServiceTest {
 	@Test
 	@DatabaseSetup
 	public void testGet() throws Exception {
-		Person person = personMapper.selectByPrimaryKey(1);
+		Person person = this.personMapper.selectByPrimaryKey(1);
 		Assert.assertEquals("name1", person.getName());
 	}
 
@@ -39,7 +38,7 @@ public class PersonServiceTest {
 		person.setId(3);
 		person.setName("name3");
 		person.setGender("f");
-		personMapper.insert(person);
+		this.personMapper.insert(person);
 	}
 
 	@Test
@@ -49,14 +48,14 @@ public class PersonServiceTest {
 		Person person = new Person();
 		person.setId(1);
 		person.setName("name111");
-		personMapper.updateByPrimaryKeySelective(person);
+		this.personMapper.updateByPrimaryKeySelective(person);
 	}
 
 	@Test
 	@DatabaseSetup
 	@ExpectedDatabase
 	public void testDelete() throws Exception {
-		personMapper.deleteByPrimaryKey(2);
+		this.personMapper.deleteByPrimaryKey(2);
 	}
 
 }
