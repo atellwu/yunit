@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- 记录数不能为0，否则会有bug -->
+	<Person id="1" name="name1" gender="m" birth_date="2009-09-09 00:00:00" />
+</dataset>

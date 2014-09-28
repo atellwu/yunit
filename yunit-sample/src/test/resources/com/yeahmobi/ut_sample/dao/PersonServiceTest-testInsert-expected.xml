@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<Person id="1" name="name1" gender="m" birth_date="2009-09-09 00:00:00"/>
+        <Person id="2" name="name2" gender="m" birth_date="2009-09-09 00:00:00"/>
+        <Person id="3" name="name3" gender="f" />
+</dataset>
