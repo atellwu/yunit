@@ -12,21 +12,21 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.yeahmobi.yunit.DbUnitTestExecutionListener;
 import com.yeahmobi.yunit.annotation.DatabaseSetup;
 import com.yeahmobi.yunit.annotation.ExpectedDatabase;
-import com.yeahmobi.yunit.sample.dao.PersonMapper;
+import com.yeahmobi.yunit.sample.dao.PersonDao;
 import com.yeahmobi.yunit.sample.entity.Person;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext-test.xml" })
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, DbUnitTestExecutionListener.class })
-public class PersonMapperTest {
+public class PersonDaoTest {
 
 	@Autowired
-	private PersonMapper personMapper;
+	private PersonDao personDao;
 
 	@Test
 	@DatabaseSetup
 	public void testGet() throws Exception {
-		Person person = this.personMapper.selectByPrimaryKey(1);
+		Person person = this.personDao.selectByPrimaryKey(1);
 		Assert.assertEquals("name1", person.getName());
 	}
 
@@ -38,7 +38,7 @@ public class PersonMapperTest {
 		person.setId(3);
 		person.setName("name3");
 		person.setGender("f");
-		this.personMapper.insert(person);
+		this.personDao.insert(person);
 	}
 
 	@Test
@@ -48,14 +48,14 @@ public class PersonMapperTest {
 		Person person = new Person();
 		person.setId(1);
 		person.setName("name111");
-		this.personMapper.updateByPrimaryKeySelective(person);
+		this.personDao.updateByPrimaryKeySelective(person);
 	}
 
 	@Test
 	@DatabaseSetup
 	@ExpectedDatabase
 	public void testDelete() throws Exception {
-		this.personMapper.deleteByPrimaryKey(2);
+		this.personDao.deleteByPrimaryKey(2);
 	}
 
 }

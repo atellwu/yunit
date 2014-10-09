@@ -19,6 +19,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath*:dao/*Mapper.xml</value>
+				<value>classpath*:dao/*Dao.xml</value>
 			</list>
 		</property>
 	</bean>
